@@ -3,45 +3,47 @@ import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AddNoteController extends GetxController {
-  RxBool isLoading = false.obs; // Para manejar el estado de carga
+  // Estat per gestionar la càrrega mentre s'afegeix una pel·lícula
+  RxBool isLoading = false.obs;
 
-  // Controladores de los TextFields
+  // Controladors dels camps de text per introduir la informació de la pel·lícula
   TextEditingController titleC = TextEditingController();
   TextEditingController descC = TextEditingController();
   TextEditingController minAgeC = TextEditingController();
   TextEditingController genreC = TextEditingController();
 
+  // Instància de Supabase per gestionar la base de dades
   SupabaseClient client = Supabase.instance.client;
 
-  // Validación directa en el campo
+  // Validació per al camp "Edat mínima"
   String? validateMinAge(String value) {
     if (value.isEmpty) {
-      return 'Estos campos son obligatorios';
+      return 'Aquest camp és obligatori';
     }
     if (int.tryParse(value) == null) {
-      return 'Por favor, ingresa un número en Min Age';
+      return 'Si us plau, introdueix un número a l\'edat mínima';
     }
-    return null; // No hay errores
+    return null; // No hi ha errors
   }
 
-  // Método para agregar una nota
+  // Mètode per afegir una pel·lícula
   Future<bool> addNote() async {
-    // Validamos que todos los campos estén llenos
+    // Comprovem que tots els camps obligatoris estiguin omplerts
     if (titleC.text.isEmpty || descC.text.isEmpty || genreC.text.isEmpty) {
-      Get.snackbar("Error", "Todos los campos son obligatorios");
+      Get.snackbar("Error", "Tots els camps són obligatoris");
       return false;
     }
 
-    // Validamos que el valor de "Min Age" sea correcto
+    // Validem que l'edat mínima sigui un número vàlid
     if (validateMinAge(minAgeC.text) != null) {
       Get.snackbar("Error", validateMinAge(minAgeC.text)!);
       return false;
     }
 
-    isLoading.value = true;
+    isLoading.value = true; // Activem l'estat de càrrega
 
     try {
-      // Obtener el ID del usuario actual
+      // Obtenim l'ID de l'usuari actual des de la base de dades
       List<dynamic> res = await client
           .from("users")
           .select("id")
@@ -49,7 +51,7 @@ class AddNoteController extends GetxController {
       Map<String, dynamic> user = res.first as Map<String, dynamic>;
       int id = user["id"];
 
-      // Insertar los datos en la base de datos
+      // Inserim les dades de la nova pel·lícula a la base de dades
       await client.from("movies").insert({
         "user_id": id,
         "title": titleC.text,
@@ -59,12 +61,12 @@ class AddNoteController extends GetxController {
         "created_at": DateTime.now().toIso8601String(),
       });
 
-      return true; // Éxito
+      return true; // Èxit en afegir la pel·lícula
     } catch (e) {
-      Get.snackbar("Error", "Hubo un problema al agregar la película");
+      Get.snackbar("Error", "Hi ha hagut un problema en afegir la pel·lícula");
       return false;
     } finally {
-      isLoading.value = false; // Detener el estado de carga
+      isLoading.value = false; // Desactivem l'estat de càrrega
     }
   }
 }

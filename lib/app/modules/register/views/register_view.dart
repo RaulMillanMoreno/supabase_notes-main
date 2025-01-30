@@ -19,6 +19,7 @@ class RegisterView extends GetView<RegisterController> {
             const SizedBox(
               height: 10,
             ),
+            // Nom de l'usuari
             TextField(
               autocorrect: false,
               controller: controller.nameC,
@@ -31,6 +32,7 @@ class RegisterView extends GetView<RegisterController> {
             const SizedBox(
               height: 20,
             ),
+            // Correu electrònic
             TextField(
               autocorrect: false,
               controller: controller.emailC,
@@ -43,6 +45,7 @@ class RegisterView extends GetView<RegisterController> {
             const SizedBox(
               height: 20,
             ),
+            // Contrasenya amb visibilitat oculta
             Obx(() => TextField(
                   autocorrect: false,
                   controller: controller.passwordC,
@@ -61,6 +64,7 @@ class RegisterView extends GetView<RegisterController> {
             const SizedBox(
               height: 30,
             ),
+            // Botó de registre
             Obx(() => ElevatedButton(
                   onPressed: () {
                     if (controller.isLoading.isFalse) {
