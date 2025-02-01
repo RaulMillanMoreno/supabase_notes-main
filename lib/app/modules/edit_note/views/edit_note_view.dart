@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:supabase_notes/app/data/models/notes_model.dart'; // Importa el model de les pel·lícules
-import 'package:supabase_notes/app/modules/home/controllers/home_controller.dart'; // Controlador per gestionar les pel·lícules de la pantalla principal
+import 'package:supabase_notes/app/data/models/notes_model.dart'; 
+import 'package:supabase_notes/app/modules/home/controllers/home_controller.dart';
 
-import '../controllers/edit_note_controller.dart'; // Controlador per editar la pel·lícula
+import '../controllers/edit_note_controller.dart';
 
 class EditNoteView extends GetView<EditNoteController> {
   // Recuperem la pel·lícula que volem editar des de l'argument passat a la vista

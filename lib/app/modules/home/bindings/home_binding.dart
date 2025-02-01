@@ -1,6 +1,5 @@
-import 'package:get/get.dart'; // Importa GetX per a la gestió de dependències
-
-import '../controllers/home_controller.dart'; // Importa el controlador de la pàgina inicial
+import 'package:get/get.dart'; 
+import '../controllers/home_controller.dart';
 
 class HomeBinding extends Bindings {
   @override

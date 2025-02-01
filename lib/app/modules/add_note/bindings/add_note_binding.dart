@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../controllers/add_note_controller.dart';
 
 // Classe que defineix les dependències per a la pantalla d'afegir una pel·lícula

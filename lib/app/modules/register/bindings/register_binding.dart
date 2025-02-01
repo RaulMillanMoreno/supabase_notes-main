@@ -1,6 +1,5 @@
-import 'package:get/get.dart'; // Importa GetX per gestionar les dependències
-
-import '../controllers/register_controller.dart'; // Importa el controlador de registre
+import 'package:get/get.dart'; 
+import '../controllers/register_controller.dart';
 
 class RegisterBinding extends Bindings {
   @override

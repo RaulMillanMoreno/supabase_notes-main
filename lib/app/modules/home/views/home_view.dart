@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart'; // Importa Material Design per a la creació de la interfície
-import 'package:get/get.dart'; // Importa GetX per a la gestió de l'estat i la navegació
-import 'package:supabase_notes/app/data/models/notes_model.dart'; // Importa el model de pel·lícules (Movies)
-import 'package:supabase_notes/app/routes/app_pages.dart'; // Importa les rutes definides per a la navegació
+import 'package:flutter/material.dart'; 
+import 'package:get/get.dart'; 
+import 'package:supabase_notes/app/data/models/notes_model.dart'; 
+import 'package:supabase_notes/app/routes/app_pages.dart';
 
-import '../controllers/home_controller.dart'; // Importa el controlador de la pàgina inicial (Home)
+import '../controllers/home_controller.dart'; 
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -39,7 +39,7 @@ class HomeView extends GetView<HomeController> {
                     )
                   : ListView.builder(
                       // Si hi ha pel·lícules, crea una llista per mostrar-les
-                      itemCount: controller.allNotes.length, // Nombre de pel·lícules a mostrar
+                      itemCount: controller.allNotes.length, 
                       itemBuilder: (context, index) {
                         Movies note = controller.allNotes[index]; // Obtenim una pel·lícula de la llista
                         return ListTile(
@@ -48,10 +48,10 @@ class HomeView extends GetView<HomeController> {
                             arguments: note, // Passem la pel·lícula a la següent pantalla com a argument
                           ),
                           leading: CircleAvatar(
-                            child: Text("t${note.id}"), // Mostra l'ID de la pel·lícula dins d'un avatar
+                            child: Text("t${note.id}"), 
                           ),
-                          title: Text("title: ${note.title}"), // Mostra el títol de la pel·lícula
-                          subtitle: Text("description: ${note.description}"), // Mostra la descripció de la pel·lícula
+                          title: Text("title: ${note.title}"), 
+                          subtitle: Text("description: ${note.description}"),
                           trailing: IconButton(
                             onPressed: () async =>
                                 await controller.deleteNote(note.id!), // Quan es fa clic a l'icona de l'escombraria, s'elimina la pel·lícula
@@ -64,7 +64,7 @@ class HomeView extends GetView<HomeController> {
         floatingActionButton: FloatingActionButton(
           // Botó flotant per afegir una nova pel·lícula
           onPressed: () => Get.toNamed(Routes.ADD_NOTE), // Redirigeix a la pàgina d'afegir pel·lícula
-          child: const Icon(Icons.add), // Icona d'afegir
+          child: const Icon(Icons.add),
         ));
   }
 }

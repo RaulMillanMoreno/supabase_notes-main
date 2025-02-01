@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // Importa GetX per a la gestió d'estat
-import 'package:supabase_notes/app/routes/app_pages.dart'; // Importa les rutes de l'aplicació
-import 'package:supabase_flutter/supabase_flutter.dart'; // Importa Supabase per a la gestió de la base de dades i l'autenticació
+import 'package:get/get.dart'; 
+import 'package:supabase_notes/app/routes/app_pages.dart'; 
+import 'package:supabase_flutter/supabase_flutter.dart'; 
 
 class ProfileController extends GetxController {
   // Variables per gestionar l'estat de la vista
-  RxBool isLoading = false.obs; // Està en càrrega o no
-  RxBool isHidden = true.obs; // Per amagar o mostrar la contrasenya
-  TextEditingController nameC = TextEditingController(); // Controlador per al nom original
-  TextEditingController nameC2 = TextEditingController(); // Controlador per a l'actualització del nom
-  TextEditingController emailC = TextEditingController(); // Controlador per al correu electrònic
-  TextEditingController passwordC = TextEditingController(); // Controlador per a la contrasenya
+  RxBool isLoading = false.obs; 
+  RxBool isHidden = true.obs; 
+  TextEditingController nameC = TextEditingController(); 
+  TextEditingController nameC2 = TextEditingController(); 
+  TextEditingController emailC = TextEditingController(); 
+  TextEditingController passwordC = TextEditingController();
 
   // Instància del client de Supabase per interactuar amb la base de dades
   SupabaseClient client = Supabase.instance.client;
 
   // Mètode per tancar la sessió de l'usuari
   Future<void> logout() async {
-    await client.auth.signOut(); // Tanca la sessió a Supabase
+    await client.auth.signOut(); 
     Get.offAllNamed(Routes.LOGIN); // Redirigeix a la pàgina de login
   }
 

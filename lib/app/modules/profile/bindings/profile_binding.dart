@@ -1,6 +1,5 @@
-import 'package:get/get.dart'; // Importa GetX per a la gestió de dependències
-
-import '../controllers/profile_controller.dart'; // Importa el controlador del perfil
+import 'package:get/get.dart'; 
+import '../controllers/profile_controller.dart';
 
 class ProfileBinding extends Bindings { // Classe que implementa la funció de Bindings
   @override

@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart'; // Importa Flutter per utilitzar els widgets i altres components
-import 'package:get/get.dart'; // Importa GetX per a la gestió d'estat i navegació
-import 'package:supabase_flutter/supabase_flutter.dart'; // Importa Supabase per a la gestió de l'autenticació i la base de dades
+import 'package:flutter/material.dart'; 
+import 'package:get/get.dart'; 
+import 'package:supabase_flutter/supabase_flutter.dart'; 
 
 class LoginController extends GetxController {
-  RxBool isLoading = false.obs; // Variable observada per controlar l'estat de càrrega
-  RxBool isHidden = true.obs; // Variable observada per controlar si la contrasenya és visible o no
-  TextEditingController emailC = TextEditingController(); // Controlador per al camp de correu electrònic
-  TextEditingController passwordC = TextEditingController(); // Controlador per al camp de contrasenya
+  RxBool isLoading = false.obs; 
+  RxBool isHidden = true.obs; 
+  TextEditingController emailC = TextEditingController(); 
+  TextEditingController passwordC = TextEditingController();
 
   SupabaseClient client = Supabase.instance.client; // Client de Supabase per a interactuar amb la base de dades i l'autenticació
 
@@ -22,8 +22,8 @@ class LoginController extends GetxController {
         // Mostrem un diàleg de confirmació si el login ha estat exitós
         Get.defaultDialog(
             barrierDismissible: false, // Impedim tancar el diàleg tocant fora
-            title: "Login success", // Títol del diàleg
-            middleText: "Will be redirect to Home Page", // Missatge del diàleg
+            title: "Login success",
+            middleText: "Will be redirect to Home Page", 
             backgroundColor: Colors.green); // Color de fons verd per a un missatge positiu
         return true; // Retornem true per indicar que el login ha estat exitós
       } catch (e) {

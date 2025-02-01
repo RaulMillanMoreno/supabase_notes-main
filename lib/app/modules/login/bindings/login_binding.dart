@@ -1,5 +1,5 @@
-import 'package:get/get.dart'; // Importa GetX per a la gestió de dependències
-import '../controllers/login_controller.dart'; // Importa el controlador de login
+import 'package:get/get.dart'; 
+import '../controllers/login_controller.dart';
 
 // Aquesta classe és responsable de la injecció de dependències per a la pàgina de login
 class LoginBinding extends Bindings {

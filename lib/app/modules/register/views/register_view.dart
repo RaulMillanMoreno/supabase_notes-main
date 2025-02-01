@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {

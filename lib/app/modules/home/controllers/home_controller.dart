@@ -1,6 +1,6 @@
-import 'package:get/get.dart'; // Importa GetX per la gestió de l'estat i dependències
-import 'package:supabase_notes/app/data/models/notes_model.dart'; // Importa el model de les pel·lícules (Movies)
-import 'package:supabase_flutter/supabase_flutter.dart'; // Importa Supabase per a la comunicació amb la base de dades
+import 'package:get/get.dart'; 
+import 'package:supabase_notes/app/data/models/notes_model.dart'; 
+import 'package:supabase_flutter/supabase_flutter.dart'; 
 
 class HomeController extends GetxController {
   // Llista reactiva que emmagatzema totes les pel·lícules
